@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Getwill</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="admin-menu-outer">
+          <div id="admin-background"></div>
+          <nav id="admin-menu"><ul class="sidebar-index test-admin-sidebar">
+  
+  
+
+  <li class="admin-menu-dashboard test-dashboard ">
+    <a href="/">Dashboard<span class="blogicon-home "></span></a>
+  </li>
+
+  <li class="admin-menu-myblog">
+    <div class="admin-menu-myblog-current-blog " data-blog-id="11696248318757668236">
+  <a class="admin-menu-myblog-btn js-admin-menu-myblog-btn
+  
+  " href="/pgpg-sou/pgpg-sou.hatenablog.com/">
+    <span class="admin-menu-myblog-label">
+      pgpg-souの備忘録
+    </span>
+    <span class="admin-menu-favicon">
+      <img src="http://hatenablog.com/images/admin/blog-icon-noimage.png" width="16" height="16" alt="pgpg-sou">
+    </span>
+    
+    
+  </a>
+</div>
+
+  </li>
+
+  <li class="admin-menu-subscribing ">
+    <a href="/-/antenna">Subscriptions<span class="blogicon-subscribe "></span></a>
+  </li>
+
+
+</ul>
+          </nav>
+<%= yield %>
+
+</body>
+</html>
+

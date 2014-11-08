@@ -1,0 +1,30 @@
+
+
+            <div class="large-12 medium-12 medium-potrait-12 columns mo-animate" data-animate="fadeInDown">
+               <table class="table blue">
+                  <thead>
+                     <tr>
+                        <th class="align-center table-width5">#</th>
+                        <th class="table-width30">Title</th>
+                        <th class="table-width30">内容</th>
+                        <th class="table-width30">いいね数</th>
+                        <th class="table-width30">コメント数</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+					<% @posts.each do |post| 
+						link = 'admin_users/show/' + post.id.to_s						
+%>
+                     <tr>
+                        <td class="align-center"><%= post.id %></td>
+                        <td><a href= <%= link %>><%= post.title %></a></td>
+						<td><%= truncate(post.content, length: 15)  %></td>
+                        <td><%= post.image %></td>
+                        <td><%= post.city_name %></td>
+				
+                     </tr>
+					<% end %>
+                  </tbody>
+               </table>    
+            </div>
+
