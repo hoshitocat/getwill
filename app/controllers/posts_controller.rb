@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @user = User.find(1)
     @posts = Post.all
   end
 
