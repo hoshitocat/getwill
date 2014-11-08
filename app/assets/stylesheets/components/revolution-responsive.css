@@ -1,0 +1,242 @@
+/*-----------------------------------------------------------------------------
+REVOLUTION RESPONSIVE BASIC STYLES OF HTML DOCUMENT
+
+Screen Stylesheet
+
+version:   	1.0
+date:      	26/06/12
+author:		themepunch
+email:     	support@themepunch.com
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+ /*	THE MEDIA CHOOSER TO SET DIFFERENT SIZES OF THE CONTAINER DEPENDING ON THE SCREEN SIZE    */
+   @media only screen and (max-width : 1024px) {
+    .banner {height:471px !important;}
+   }
+  
+  
+   @media only screen and (min-width: 768px) and (max-width: 959px) {
+    .banner {height:347px !important;}
+    .tp-caption.general_caption h2 {font-size: 34px;}
+    .tp-caption.general_caption p.lead {font-size: 22px; line-height: 28px;}
+    p.text-box{padding:5px 16px 7px 14px;  font-size: 18px;  line-height: 27px;}
+    .tp-rr1 {margin-left: -10px !important; margin-top: -15px !important;}
+    .tp-rr2 {margin-left: -30px !important; margin-top: -15px !important;}
+    .tp-rr3 {margin-left: -34px !important;}
+    .tp-rr4 {margin-top: -30px !important;}
+    .tp-rr5 {margin-top: -24px !important;}
+    .tp-rr6 {margin-left: -44px !important;}
+    .tp-rr7 {margin-left: -44px !important;}
+   }
+
+   @media only screen and (min-width: 480px) and (max-width: 767px) {
+   .banner {height:247px !important;}
+    .tp-caption.general_caption h2 {font-size: 28px !important;}
+    .tp-caption.general_caption p.lead {display: none;}
+    .tp-caption.general_caption a.button {display: none;}
+    p.text-box{display: none;}
+    .tp-rr1 {margin-left: -30px !important; margin-top: 25px !important;}
+    .tp-rr4 {margin-top: 10px !important;}
+    .tp-rr6 {margin-left: -24px !important; margin-top: 20px !important;} 
+   }
+
+   @media only screen and (min-width: 0px) and (max-width: 479px) {
+	  .banner {height:160px !important;}
+    .tp-caption.general_caption h2 {font-size: 16px !important;}
+    .tp-caption.general_caption p.lead {display: none;}
+    .tp-caption.general_caption a.button {display: none;}
+    p.text-box{display: none;}
+    .tp-rr1 {margin-left: -12px !important; margin-top: 20px !important;}
+    .tp-rr4 {margin-left: 24px !important; margin-top: 10px !important;}
+    .tp-rr6 {margin-left: -24px !important; margin-top: 15px !important;}
+    .tp-rr7 {margin-top: 5px !important; margin-left: 8px !important;}
+   }
+
+ 
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+
+/* decrease horizontal main menu items left/right padding to avoid wrapping */
+@media screen and (max-width: 850px) {
+  .sm-blue:not(.sm-blue-vertical) > li > a {
+    padding-left:18px;
+    padding-right:18px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .sm-blue:not(.sm-blue-vertical) > li > a {
+    padding-left:10px;
+    padding-right:10px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+  ul.sm-blue{width:auto !important;}
+  ul.sm-blue ul{display:none;position:static !important;top:auto !important;left:auto !important;margin-left:0 !important;margin-top:0 !important;width:auto !important;min-width:0 !important;max-width:none !important;}
+  ul.sm-blue>li{float:none;}
+  ul.sm-blue>li>a,ul.sm-blue ul.sm-nowrap>li>a{white-space:normal;}
+  ul.sm-blue iframe{display:none;}
+
+  /* Uncomment this rule to disable completely the sub menus for small screen devices */
+  /*.sm-blue ul, .sm-blue span.sub-arrow, .sm-blue iframe {
+    display:none !important;
+  }*/
+
+
+/* Menu box
+===================*/
+
+  .sm-blue {
+    background:transparent;
+    -moz-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+    box-shadow:0 1px 4px rgba(0,0,0,0.3);
+  }
+  .sm-blue ul {
+    border:0;
+    padding:0;
+    background:#fff;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    border-radius:0;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+  }
+  .sm-blue ul ul {
+    /* darken the background of the 2+ level sub menus and remove border rounding */
+    background:rgba(100,100,100,0.1);
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    border-radius:0;
+  }
+
+
+/* Menu items
+===================*/
+
+  .sm-blue a {
+    padding:10px 5px 10px 28px !important; /* add some additional left padding to make room for the sub indicator */
+    background:#3193c0 !important; /* Old browsers */
+    background-image:url(css-gradients-fallback/vertical-main-item-bg.png) !important;
+    background-image:-moz-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3fa3d1),color-stop(100%,#2586b3)) !important;
+    background-image:-webkit-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+    background-image:-o-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+    background-image:-ms-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+    background-image:linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+    color:#fff !important;
+  }
+  .sm-blue ul a {
+    background:transparent !important;
+    color:#247eab !important;
+    text-shadow:none !important;
+  }
+  .sm-blue a.current {
+    background:#006892 !important; /* Old browsers */
+    background-image:url(css-gradients-fallback/current-item-bg.png) !important;
+    background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f)) !important;
+    background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+    background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+    background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+    background-image:linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+    color:#fff !important;
+  }
+  /* add some text indentation for the 2+ level sub menu items */
+  .sm-blue ul a {
+    border-left:8px solid transparent;
+  }
+  .sm-blue ul ul a {
+    border-left:16px solid transparent;
+  }
+  .sm-blue ul ul ul a {
+    border-left:24px solid transparent;
+  }
+  .sm-blue ul ul ul ul a {
+    border-left:32px solid transparent;
+  }
+  .sm-blue ul ul ul ul ul a {
+    border-left:40px solid transparent;
+  }
+  /* round the corners of the first and last items */
+  .sm-blue > li:first-child > a {
+    -moz-border-radius:8px 8px 0 0;
+    -webkit-border-radius:8px 8px 0 0;
+    border-radius:8px 8px 0 0;
+  }
+  /* presume we have 4 levels max */
+  .sm-blue > li:last-child > a,
+  .sm-blue > li:last-child > ul > li:last-child > a,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > a,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+  .sm-blue > li:last-child > ul,
+  .sm-blue > li:last-child > ul > li:last-child > ul,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul {
+    -moz-border-radius:0 0 8px 8px;
+    -webkit-border-radius:0 0 8px 8px;
+    border-radius:0 0 8px 8px;
+  }
+  /* highlighted items, don't need rounding since their sub is open */
+  .sm-blue > li:last-child > a.highlighted,
+  .sm-blue > li:last-child > ul > li:last-child > a.highlighted,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+  .sm-blue > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted {
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    border-radius:0;
+  }
+
+
+/* Sub menu indicators
+===================*/
+
+  .sm-blue a span.sub-arrow,
+  .sm-blue ul a span.sub-arrow {
+    top:50%;
+    margin-top:-9px;
+    right:auto;
+    left:6px;
+    margin-left:0;
+    width:17px;
+    height:17px;
+    font:bold 16px/16px monospace !important;
+    text-align:center;
+    border:0;
+    text-shadow:none;
+    background:rgba(0,0,0,0.1);
+    -moz-border-radius:100px;
+    -webkit-border-radius:100px;
+    border-radius:100px;
+  }
+  /* Hide sub indicator "+" when item is expanded - we enable the item link when it's expanded */
+  .sm-blue a.highlighted span.sub-arrow {
+    display:none !important;
+  }
+
+
+/* Items separators
+===================*/
+
+  .sm-blue li {
+    border-left:0;
+  }
+  .sm-blue ul li {
+    border-top:1px solid rgba(0,0,0,0.05);
+  }
+  .sm-blue ul li:first-child {
+    border-top:0;
+  }
+
+}

@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Getwill</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Kyma - Multipurpose HTML Template</title>
+   <%= stylesheet_link_tag 'application' %>
+      
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="img/favicon.ico" />
+
+   <!-- Google Webfont -->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet'>
+   <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet'>   
+   
+   <%= javascript_include_tag 'application' %>
+
 </head>
+
 <body>
 
-<%= yield %>
+	<%= yield %>
 
+
+	<!-- javascript here -->
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+         
+		});
+	</script>
 </body>
 </html>

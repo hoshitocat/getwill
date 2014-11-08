@@ -1,37 +1,60 @@
-<h1>Listing posts</h1>
+  <div id="mo-wrapper">
+      <section id="panel">
+      </section>      
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
-      <th>User</th>
-      <th>X locate</th>
-      <th>Y locate</th>
-      <th>Valiable</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <header>
+    </header>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.image %></td>
-        <td><%= post.user_id %></td>
-        <td><%= post.x_locate %></td>
-        <td><%= post.y_locate %></td>
-        <td><%= post.valiable %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <section class="mo-content">
+         <div class="row">
+            <div class="large-12 columns">
 
-<br>
+               <ul class="timeline">
 
-<%= link_to 'New Post', new_post_path %>
+                  <% @posts.each do |post| %>
+                  <li class="mo-animate" data-animate="fadeInDown">
+                     <div class="timeline-container">
+                        <div class="feature-left">
+                           <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
+                           <p>　総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
+                           <div class ="auther">投稿者: 山田花子</div> <!-- 投稿者名を載せるならここでいかが -->
+                        </div>
+                     </div>
+                     <div class="timeline-footer">
+                        <div class="footer-content">
+                            <ul class="inline-list">
+                              <li>2014/11/12 23:43</li>   
+                              <li><a href="#"><i class="icon-comment"></i> 25</a></li>
+                              <li><a href="#"><i class="icon-fblike"></i> 100</a></li> 
+                           </ul>
+                        </div>
+                     </div>
+                  </li>
+                  <% end %>
+                  
+                                    <li class="mo-animate" data-animate="fadeInDown">
+                     <div class="timeline-container">
+                        <div class="feature-left">
+                           <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
+                           <p>　総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
+                           <div class ="auther">投稿者: 山田花子</div> <!-- 投稿者名を載せるならここでいかが -->
+                        </div>
+                     </div>
+                     <div class="timeline-footer">
+                        <div class="footer-content">
+                            <ul class="inline-list">
+                              <li>2014/11/12 23:43</li>   
+                              <li><a href="#"><i class="icon-comment"></i> 25</a></li>
+                              <li><a href="#"><i class="icon-fblike"></i> 100</a></li> 
+                           </ul>
+                        </div>
+                     </div>
+                  </li>
+
+               </ul>
+            </div>
+         </div>                 
+      </section>          
+
+
+  </div>      

@@ -1,0 +1,180 @@
+/* --------------------------------------------------------------------------
+ * Prodigystudio  : Kyma - Multipurpose HTML Template
+ *  
+ * file           : imgcaption.css
+ * Desc           : Maleo Framework - Image Caption Component
+ * Version        : 1.0
+ * Date           : 06/12/2014
+ * Author         : Prodigystudio - team
+ * Author URI     : http://prodigystudio.net
+ * Email          : Hello@prodigystudio.net
+ *
+ * Prodigy Studio. Copyright © 2014. All Rights Reserved.
+ * -------------------------------------------------------------------------- */
+
+.mo-caption {
+   width: 100%;
+   height: 100%;
+   margin-bottom: 20px; 
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   cursor: default;
+   float: left;
+}
+.mo-caption .mask, .mo-caption .content {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+.mo-caption img {
+   display: block;
+   position: relative;
+}
+.mo-caption a.preview {
+   background-color: #a7a7a7;
+   color: #fff;
+   font-size: 16px;
+   display: inline-block;
+   text-decoration: none;
+   padding-top:8px;
+   width:45px;
+   height:45px;
+   -webkit-border-radius: 500px;
+   -moz-border-radius: 500px;
+   border-radius: 500px;
+   position: relative;
+}
+
+.mo-caption a.permalink {
+   background-color: #fff;
+   color: #a7a7a7;
+   font-size: 16px;
+   display: inline-block;
+   text-decoration: none;
+   padding-top:8px;
+   width:45px;
+   height:45px;
+   -webkit-border-radius: 500px;
+   -moz-border-radius: 500px;
+   border-radius: 500px;
+   position: relative;
+}
+
+/*.mo-caption:hover a.preview, 
+.mo-caption:hover a.permalink {
+/*   z-index: 9999;
+   position: absolute;
+}*/
+
+.large-1 .mo-caption a.preview, .large-1 .mo-caption a.permalink {display: none;}
+.large-2 .mo-caption a.preview, .large-2 .mo-caption a.permalink {font-size: 12px; padding-top:3px; width:34px; height:34px; margin-top:-7px;}
+.large-3 .mo-caption a.preview, .large-3 .mo-caption a.permalink {margin-top:-7px;}
+.large-5 .mo-caption a.preview, .large-5 .mo-caption a.permalink {margin-top:5px;}
+.large-6 .mo-caption a.preview, .large-6 .mo-caption a.permalink {margin-top:11px;}
+.large-7 .mo-caption a.preview, .large-7 .mo-caption a.permalink {margin-top:17px;}
+.large-8 .mo-caption a.preview, .large-8 .mo-caption a.permalink {margin-top:23px;}
+.large-9 .mo-caption a.preview, .large-9 .mo-caption a.permalink {margin-top:29px;}
+.large-10 .mo-caption a.preview, .large-10 .mo-caption a.permalink {margin-top:35px;}
+.large-11 .mo-caption a.preview, .large-11 .mo-caption a.permalink {margin-top:41px;}
+.large-12 .mo-caption a.preview, .large-12 .mo-caption a.permalink {margin-top:47px;}
+
+.effect img {
+   opacity:1;
+   -moz-transform:scale(1);
+   -webkit-transform:scale(1);
+   -o-transform:scale(1);
+   -ms-transform:scale(1);
+   transform:scale(1);
+   -webkit-transition: all 0.35s ease-in;
+   -moz-transition: all 0.35s ease-in;
+   -o-transition: all 0.35s ease-in;
+   -ms-transition: all 0.35s ease-in;
+   transition: all 0.35s ease-in;
+}
+
+.effect .mask {
+   opacity: 0;
+   overflow:visible;
+   -webkit-transition: all 0.35s ease-in-out;
+   -moz-transition: all 0.35s ease-in-out;
+   -o-transition: all 0.35s ease-in-out;
+   -ms-transition: all 0.35s ease-in-out;
+   transition: all 0.35s ease-in-out;
+   top: 0;
+}
+
+.effect a.preview {
+	opacity:0;
+   -moz-transform:translateX(-350px);
+   -webkit-transform:translateX(-350px);
+   -o-transform:translateX(-350px);
+   -ms-transform:translateX(-350px);
+   transform:translateX(-350px);
+   -webkit-transition: all 0.35s ease-in-out;
+   -moz-transition: all 0.35s ease-in-out;
+   -o-transition: all 0.35s ease-in-out;
+   -ms-transition: all 0.35s ease-in-out;
+   transition: all 0.35s ease-in-out;
+   top: 43%;
+   left: -5%;
+   position: relative;
+}
+
+.effect a.permalink {
+   opacity:0;
+   -moz-transform:translateX(350px);
+   -webkit-transform:translateX(350px);
+   -o-transform:translateX(350px);
+   -ms-transform:translateX(350px);
+   transform:translateX(350px);
+   -webkit-transition: all 0.35s ease-in-out;
+   -moz-transition: all 0.35s ease-in-out;
+   -o-transition: all 0.35s ease-in-out;
+   -ms-transition: all 0.35s ease-in-out;
+   transition: all 0.35s ease-in-out;
+   top: 43%;
+   right: -5%;
+   position: relative;
+}
+
+.effect:hover img {
+	opacity:1;
+   -webkit-transform: scale(1.2,1.2) rotate(3deg);
+   -moz-transform: scale(1.1,1.1) rotate(3deg);
+   -o-transform: scale(1.1,1.1) rotate(3deg);
+   -ms-transform: scale(1.1,1.1) rotate(3deg);
+   transform: scale(1.1,1.1) rotate(3deg);
+}
+
+.effect:hover .mask {
+   opacity: 1;
+   background: rgba(0,0,0,0.5) !important;
+}
+
+.effect:hover a.preview {
+	opacity:1;
+   -moz-transform:translateX(0);
+   -webkit-transform:translateX(0);
+   -o-transform:translateX(0);
+   -ms-transform:translateX(0);
+   transform:translateX(0);
+   top: 41.2%;
+   left: -5px;
+   position: relative;
+}
+
+.effect:hover a.permalink {
+   opacity:1;
+   -moz-transform:translateX(0);
+   -webkit-transform:translateX(0);
+   -o-transform:translateX(0);
+   -ms-transform:translateX(0);
+   transform:translateX(0);
+   top: 41.2%;
+   right: -5px;
+   position: relative;
+}	
