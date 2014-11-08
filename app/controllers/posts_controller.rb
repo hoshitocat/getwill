@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    raise
+    @user = User.find(1)
     @posts = Post.all
   end
 

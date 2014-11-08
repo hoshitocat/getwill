@@ -28,4 +28,20 @@
 * windows:
   - 2.0.0-p594
 
-
+#### DB関係
+##### User tableに関しての注意事項
+* sex
+  - 1が男性
+  - 2が女性
+* disability
+  - trueが障害有り
+  - falseが障害無し
+* admin
+  - trueがadminユーザー
+  - falseが一般ユーザー
+* valiable
+  - trueが表示
+  - falseが非表示（退会ユーザー）
+* 緯度経度
+  - x_locateは経度
+  - y_locateは緯度
