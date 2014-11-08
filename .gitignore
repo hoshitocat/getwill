@@ -1,2 +1,47 @@
+.git
+*.swp
 .DS_Store
-config/database.yml
+*.rbc
+capybara-*.html
+.rspec
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+Thumbs.db
+
+# TODO Comment out these rules if you are OK with secrets being uploaded to the repo
+#config/initializers/secret_token.rb
+#config/secrets.yml
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore .ruby-version
+/.ruby-version
+
+# Ignore better_erroors settings
+/config/environments/development.rb
+
+# Ignore the /bin
+/bin/*
+
+# Ignore development.rb
+/config/environments/development.rb

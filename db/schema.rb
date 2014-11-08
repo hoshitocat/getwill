@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108085535) do
+ActiveRecord::Schema.define(version: 20141108103239) do
 
   create_table "admin_posts", force: true do |t|
     t.string   "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20141108085535) do
     t.integer  "user_id"
     t.datetime "deadline"
     t.boolean  "valiable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_users", force: true do |t|
+    t.string   "city_name"
+    t.string   "email"
+    t.string   "password"
+    t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141108085535) do
     t.string   "title"
     t.text     "content"
     t.text     "image"
+    t.string   "city_name"
     t.integer  "user_id"
     t.float    "x_locate",   limit: 24
     t.float    "y_locate",   limit: 24
@@ -62,9 +72,11 @@ ActiveRecord::Schema.define(version: 20141108085535) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+    t.string   "password"
     t.text     "image"
     t.integer  "age"
     t.integer  "sex"
+    t.string   "post_code"
     t.text     "address"
     t.integer  "post_num"
     t.integer  "like_num"

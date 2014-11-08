@@ -32,3 +32,367 @@ Migrating to CreateCommentLikes (20141108085535)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085535')
   [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 192.168.33.1 at 2014-11-08 09:08:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered vendor/bundle/ruby/1.9.1/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 52ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 09:08:57 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts`
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 685ms (Views: 680.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/admin_posts.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/admin_posts.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE `admin_posts`[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mDROP TABLE `comment_likes`[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE `likes`[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE `posts`[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `x_locate` float(24), `y_locate` float(24), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE `users`[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `image` text, `age` int(11), `sex` int(11), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (6.0ms)[0m  [1mDROP DATABASE IF EXISTS `getwill_development`[0m
+  [1m[35m (0.2ms)[0m  DROP DATABASE IF EXISTS `getwill_test`
+  [1m[36m (0.1ms)[0m  [1mCREATE DATABASE `getwill_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.1ms)[0m  CREATE DATABASE `getwill_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `x_locate` float(24), `y_locate` float(24), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `image` text, `age` int(11), `sex` int(11), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (5.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108085535')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108085321')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108084431')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108085231')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108085408')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108084954')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAdminUsers (20141108103239)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `admin_users` (`id` int(11) auto_increment PRIMARY KEY, `city_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108103239')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (4.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20141108084431)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `age` int(11), `sex` int(11), `post_code` varchar(255), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108084431')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20141108084954)
+  [1m[35m (1.8ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `city_name` varchar(255), `user_id` int(11), `x_locate` float, `y_locate` float, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108084954')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminPosts (20141108085231)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085231')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLikes (20141108085321)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085321')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141108085408)
+  [1m[35m (2.0ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085408')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCommentLikes (20141108085535)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085535')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminUsers (20141108103239)
+  [1m[35m (1.9ms)[0m  CREATE TABLE `admin_users` (`id` int(11) auto_increment PRIMARY KEY, `city_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108103239')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 192.168.33.1 at 2014-11-08 10:57:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posta" for 192.168.33.1 at 2014-11-08 10:57:36 +0000
+
+ActionController::RoutingError (No route matches [GET] "/posta"):
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:38:in `call_app'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `block in call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/static.rb:64:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/engine.rb:514:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/application.rb:144:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (53.4ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (72.3ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 10:57:39 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+RuntimeError ():
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.4ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 11:00:19 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+RuntimeError ():
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 11:00:20 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+RuntimeError ():
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/posta" for 192.168.33.1 at 2014-11-08 11:00:29 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/posta"):
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:38:in `call_app'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `block in call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/static.rb:64:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/engine.rb:514:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/application.rb:144:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (44.3ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (61.7ms)
+
+
+Started GET "/posta" for 192.168.33.1 at 2014-11-08 11:00:30 +0000
+
+ActionController::RoutingError (No route matches [GET] "/posta"):
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:38:in `call_app'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `block in call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/tagged_logging.rb:68:in `tagged'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/rack/logger.rb:20:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/activesupport-4.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/static.rb:64:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/engine.rb:514:in `call'
+  vendor/bundle/ruby/2.0.0/gems/railties-4.1.6/lib/rails/application.rb:144:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+  vendor/bundle/ruby/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered vendor/bundle/ruby/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (17.4ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 11:00:33 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 9ms
+
+RuntimeError - :
+  app/controllers/posts_controller.rb:7:in `index'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/dor0thy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/ff7b69662161fd9c/variables" for 192.168.33.1 at 2014-11-08 11:00:33 +0000
+
+
+Started POST "/__better_errors/ff7b69662161fd9c/eval" for 192.168.33.1 at 2014-11-08 11:00:52 +0000

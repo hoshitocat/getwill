@@ -4,9 +4,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
+      t.string :password
       t.text :image
       t.integer :age
       t.integer :sex
+      t.string :post_code
       t.text :address
       t.integer :post_num
       t.integer :like_num
