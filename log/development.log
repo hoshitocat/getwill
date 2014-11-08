@@ -32,3 +32,127 @@ Migrating to CreateCommentLikes (20141108085535)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085535')
   [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 192.168.33.1 at 2014-11-08 09:08:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered vendor/bundle/ruby/1.9.1/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 52ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 192.168.33.1 at 2014-11-08 09:08:57 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT `posts`.* FROM `posts`
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 685ms (Views: 680.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/admin_posts.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/admin_posts.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.168.33.1 at 2014-11-08 09:08:58 +0000
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE `admin_posts`[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.6ms)[0m  [1mDROP TABLE `comment_likes`[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE `likes`[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE `posts`[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `x_locate` float(24), `y_locate` float(24), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE `users`[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `image` text, `age` int(11), `sex` int(11), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (6.0ms)[0m  [1mDROP DATABASE IF EXISTS `getwill_development`[0m
+  [1m[35m (0.2ms)[0m  DROP DATABASE IF EXISTS `getwill_test`
+  [1m[36m (0.1ms)[0m  [1mCREATE DATABASE `getwill_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.1ms)[0m  CREATE DATABASE `getwill_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `x_locate` float(24), `y_locate` float(24), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `image` text, `age` int(11), `sex` int(11), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (5.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108085535')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108085321')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108084431')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108085231')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141108085408')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141108084954')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAdminUsers (20141108103239)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `admin_users` (`id` int(11) auto_increment PRIMARY KEY, `city_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108103239')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (4.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20141108084431)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `age` int(11), `sex` int(11), `post_code` varchar(255), `address` text, `post_num` int(11), `like_num` int(11), `comment_num` int(11), `disability` tinyint(1), `admin` tinyint(1), `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108084431')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20141108084954)
+  [1m[35m (1.8ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `city_name` varchar(255), `user_id` int(11), `x_locate` float, `y_locate` float, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108084954')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminPosts (20141108085231)
+  [1m[35m (2.1ms)[0m  CREATE TABLE `admin_posts` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `image` text, `user_id` int(11), `deadline` datetime, `valiable` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085231')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLikes (20141108085321)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085321')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141108085408)
+  [1m[35m (2.0ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `post_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085408')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCommentLikes (20141108085535)
+  [1m[35m (1.7ms)[0m  CREATE TABLE `comment_likes` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `comment_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108085535')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminUsers (20141108103239)
+  [1m[35m (1.9ms)[0m  CREATE TABLE `admin_users` (`id` int(11) auto_increment PRIMARY KEY, `city_name` varchar(255), `email` varchar(255), `password` varchar(255), `image` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141108103239')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`

@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.text :image
+      t.string :city_name
       t.integer :user_id
       t.float :x_locate
       t.float :y_locate
