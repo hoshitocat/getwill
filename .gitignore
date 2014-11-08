@@ -42,3 +42,6 @@ Thumbs.db
 
 # Ignore the /bin
 /bin/*
+
+# Ignore development.rb
+/config/environments/development.rb

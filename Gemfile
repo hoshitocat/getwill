@@ -38,3 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Debug
+group :development do
+  gem 'better_errors'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'binding_of_caller'
+end
