@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <strong>X locate:</strong>
+  <%= @post.x_locate %>
+</p>
+
+<p>
+  <strong>Y locate:</strong>
+  <%= @post.y_locate %>
+</p>
+
+<p>
+  <strong>Valiable:</strong>
+  <%= @post.valiable %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
