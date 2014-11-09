@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141108103239) do
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
+    t.boolean  "valiable"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

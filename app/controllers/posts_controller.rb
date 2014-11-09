@@ -1,3 +1,4 @@
+# coding: utf-8
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -6,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(1)
     @posts = Post.all
+    session[:user_id] = @user.id
   end
 
   # GET /posts/1
@@ -20,6 +22,31 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+  end
+
+  def like
+    post_id = 3# params[:post_id]
+    if Like.where(post_id: post_id, user_id: session[:user_id]).first
+      @done = true
+    else
+      like = Like.new
+      like.user_id = session[:user_id]
+      like.post_id = post_id
+      like.valiable = true
+      like.save
+      @done = false
+    end
+    redirect_to '/posts'
+  end
+
+  def comment
+    post_id = 3 # params[:post_id]
+    comment = Comment.new
+    comment.content = "これすごく良くわかります。よろしくお願い致します。"# params[:comment]
+    comment.user_id = session[:user_id]
+    comment.post_id = post_id
+    comment.save
+    redirect_to '/posts'
   end
 
   # POST /posts

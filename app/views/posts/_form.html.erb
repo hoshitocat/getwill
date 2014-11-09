@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <ul class="comment-form"> 
+    <li class="subj-ico"><%= f.text_field :title, :class => "form-control", :placeholder => "タイトル" %></li>
+    <li><%= f.text_area :content, :size => "20x10", :class => "form-control", :placeholder => "内容" %></li>
+    <li>画像ファイル：<%= f.file_field :image %></li>
+    <li><%= button_tag "送信", :class => "actions button yellow" %>
+        <%= button_tag "リセット", :class => "actions button gray", :type => "reset" %></li>
+  </ul>
+
+<!--
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -26,4 +35,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+-->
 <% end %>
