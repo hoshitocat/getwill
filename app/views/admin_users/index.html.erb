@@ -1,6 +1,5 @@
 
-
-            <div class="large-12 medium-12 medium-potrait-12 columns mo-animate" data-animate="fadeInDown">
+            <div class="large-8 medium-8 medium-potrait-8 columns mo-animate" data-animate="fadeInDown" style="padding-left: 80px">
                <table class="table blue">
                   <thead>
                      <tr>
@@ -13,7 +12,7 @@
                   </thead>
                   <tbody>
 					<% @posts.each do |post| 
-						link = 'admin_users/show/' + post.id.to_s						
+						link = 'show/' + post.id.to_s						
 %>
                      <tr>
                         <td class="align-center"><%= post.id %></td>
@@ -21,7 +20,6 @@
 						<td><%= truncate(post.content, length: 15)  %></td>
                         <td><%= post.image %></td>
                         <td><%= post.city_name %></td>
-				
                      </tr>
 					<% end %>
                   </tbody>

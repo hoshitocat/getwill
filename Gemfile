@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'lazy_high_charts'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use mysql as the database for Active Record
@@ -50,3 +51,4 @@ group :development do
   gem 'pry-byebug'
   gem 'binding_of_caller'
 end
+

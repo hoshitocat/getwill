@@ -13,6 +13,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
 //= require turbolinks
 //= require modernizr
 //= require jquery.min

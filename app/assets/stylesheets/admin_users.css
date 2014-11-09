@@ -1,0 +1,17 @@
+.row {
+	max-width: 100%
+}
+.rowa {
+	max-width: 100%
+	float: left;
+}
+.resp-tabs-list li{
+}
+.resp-tabs-list {
+}
+.large-3 {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 400px;
+	background: #606060;
+}
