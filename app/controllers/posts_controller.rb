@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @user = User.find(1)
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     session[:user_id] = @user.id
   end
 
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to '/posts', notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

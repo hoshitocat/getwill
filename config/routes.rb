@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
   resources :admin_posts
 
+<<<<<<< HEAD
+  resources :posts
+  get 'admin_users' => 'admin_users#index' 
+  get 'admin_users/show/:id' => 'admin_users#show'
+  get 'admin_users/apis' => 'admin_users#apis'
+=======
   resources :posts do
     collection do
       get 'like'
       get 'comment'
     end
   end
+>>>>>>> 14e5a5fdb63c8464648f791fce3f6081af7354c6
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

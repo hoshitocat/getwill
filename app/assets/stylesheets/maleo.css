@@ -3559,11 +3559,9 @@ h4.resp-accordion,
 .resp-tabs-list li {
   position: relative;
   font-size: 16px;
-  background: #fafafa;
+  background: #606060;
   line-height: 1.42857;
   padding: 16px 20px 16px 23px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
   transition: all 0.4s ease-in-out 0s;
   -moz-transition: all 0.4s ease-in-out 0s;
   -webkit-transition: all 0.4s ease-in-out 0s;
