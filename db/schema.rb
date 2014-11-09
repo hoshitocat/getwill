@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108103239) do
+ActiveRecord::Schema.define(version: 20141109044250) do
 
   create_table "admin_posts", force: true do |t|
     t.string   "title"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20141108103239) do
     t.float    "x_locate",   limit: 24
     t.float    "y_locate",   limit: 24
     t.boolean  "valiable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sabae_ps", force: true do |t|
+    t.integer  "no"
+    t.integer  "year"
+    t.integer  "age"
+    t.integer  "man"
+    t.integer  "fem"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
