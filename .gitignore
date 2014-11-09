@@ -37,11 +37,7 @@ Thumbs.db
 # Ignore .ruby-version
 /.ruby-version
 
-# Ignore better_erroors settings
-/config/environments/development.rb
-
 # Ignore the /bin
 /bin/*
 
-# Ignore development.rb
-/config/environments/development.rb
+/public/uploads

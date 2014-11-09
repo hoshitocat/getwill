@@ -1,3 +1,4 @@
+# coding: utf-8
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -5,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @user = User.find(1)
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
+    session[:user_id] = @user.id
   end
 
   # GET /posts/1
@@ -22,6 +24,31 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def like
+    post_id = 3# params[:post_id]
+    if Like.where(post_id: post_id, user_id: session[:user_id]).first
+      @done = true
+    else
+      like = Like.new
+      like.user_id = session[:user_id]
+      like.post_id = post_id
+      like.valiable = true
+      like.save
+      @done = false
+    end
+    redirect_to '/posts'
+  end
+
+  def comment
+    post_id = 3 # params[:post_id]
+    comment = Comment.new
+    comment.content = "これすごく良くわかります。よろしくお願い致します。"# params[:comment]
+    comment.user_id = session[:user_id]
+    comment.post_id = post_id
+    comment.save
+    redirect_to '/posts'
+  end
+
   # POST /posts
   # POST /posts.json
   def create
@@ -29,7 +56,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to '/posts', notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

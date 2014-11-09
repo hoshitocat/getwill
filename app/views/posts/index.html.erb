@@ -1,60 +1,106 @@
-  <div id="mo-wrapper">
-      <section id="panel">
-      </section>      
+<div id="mo-wrapper">
+  <section id="panel">
+  </section>
 
-    <header>
-    </header>
+  <header>
+  </header>
 
-      <section class="mo-content">
-         <div class="row">
-            <div class="large-12 columns">
+  <section class="mo-content">
+    <div class="row">
+      <div class="large-12 columns">
 
-               <ul class="timeline">
+        <ul class="timeline">
 
-                  <% @posts.each do |post| %>
-                  <li class="mo-animate" data-animate="fadeInDown">
-                     <div class="timeline-container">
-                        <div class="feature-left">
-                           <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
-                           <p>　総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
-                           <div class ="auther">投稿者: 山田花子</div> <!-- 投稿者名を載せるならここでいかが -->
-                        </div>
-                     </div>
-                     <div class="timeline-footer">
-                        <div class="footer-content">
-                            <ul class="inline-list">
-                              <li>2014/11/12 23:43</li>   
-                              <li><a href="#"><i class="icon-comment"></i> 25</a></li>
-                              <li><a href="#"><i class="icon-fblike"></i> 100</a></li> 
-                           </ul>
-                        </div>
-                     </div>
-                  </li>
+          <% @posts.each do |post| %>
+            <li id ="tid<%= post.id %>" class="mo-animate posts" data-animate="fadeInDown">
+              <div class="timeline-container">
+                <div class="feature-left">
+                  <h5 class="gap" data-top="20" data-bottom="12"><%= post.title%></h5>
+                  <p><%= post.content %></p>
+                  <% if post.image? %>
+                    <%= image_tag post.image.url, :class =>'thumbnail' %>
+                  <% else %>
+                    <%= image_tag 'noimage.gif' %>
+          <% end %>
+          <% post_datetime = post.created_at.to_s(:datetime).split(" ") %>
+          <div class ="auther">
+            <%= post_datetime[0].split("-").join("/") + " " %>
+            <%= post_datetime[1] %><br>
+            <span>投稿者: 山田花子</span>
+          </div>
+                </div>
+              </div>
+              <div class="timeline-footer">
+                <div class="footer-content">
+                  <ul class="inline-list">
+                    <li><a href="#"><i class="icon-comment"></i> 25</a></li>
+                    <li><a href="#"><i class="icon-fblike"></i> 100</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- コメント -->
+              <div class="timeline-container comments">
+                <% if !@comments.nil? %>
+                  <% @comments.each do |comment| %>
+                    <div class="feature-left">
+                      <h5 class="gap" data-top="20" data-bottom="12">私も賛成ですー</h5>
+                      <p>　私も賛成ですー。</p>
+                      <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
+                    </div>
                   <% end %>
-                  
-                                    <li class="mo-animate" data-animate="fadeInDown">
-                     <div class="timeline-container">
-                        <div class="feature-left">
-                           <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
-                           <p>　総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
-                           <div class ="auther">投稿者: 山田花子</div> <!-- 投稿者名を載せるならここでいかが -->
-                        </div>
-                     </div>
-                     <div class="timeline-footer">
-                        <div class="footer-content">
-                            <ul class="inline-list">
-                              <li>2014/11/12 23:43</li>   
-                              <li><a href="#"><i class="icon-comment"></i> 25</a></li>
-                              <li><a href="#"><i class="icon-fblike"></i> 100</a></li> 
-                           </ul>
-                        </div>
-                     </div>
-                  </li>
+                <% end  %>
+              </div>
+            </li>
+          <% end %>
 
-               </ul>
+          <!-- sample -->
+          <li class="mo-animate" data-animate="fadeInDown">
+            <div class="timeline-container">
+              <div class="feature-left">
+                <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
+                <p>　（サンプル）総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
+                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
+              </div>
             </div>
-         </div>                 
-      </section>          
+            <div class="timeline-footer">
+              <div class="footer-content">
+                <ul class="inline-list">
+                  <li><a class ="btn-comment"><i class="icon-comment"></i> 25</a></li>
+                  <li><a href="#"><i class="icon-fblike"></i> 100</a></li>
+                </ul>
+              </div>
+            </div>
 
+            <!-- コメント -->
+            <div class="timeline-container comments">
+              <div class="feature-left">
+                <h5 class="gap" data-top="20" data-bottom="12">私も賛成ですー</h5>
+                <p>　私も賛成ですー。</p>
+                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
+              </div>
+              <div class="feature-left">
+                <h5 class="gap" data-top="20" data-bottom="12">私も賛成ですー</h5>
+                <p>　私も賛成ですー。</p>
+                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
+              </div>
+            </div>
 
-  </div>      
+          </li>
+          <!-- .sample -->
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- javascript here -->
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    $(".comments").hide();
+    $(".btn-comment").click(function(){
+      $(".comments").slideToggle();
+    });
+  });
+</script>

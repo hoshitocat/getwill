@@ -2348,6 +2348,10 @@ ul.video-info li.video-comment i {
 	margin-bottom: 20px;
 }
 
+.timeline-container .auther {
+	text-align:right;
+}
+
 table thead {
 	font-family: 'Noto Serif', sans-serif;
 }
