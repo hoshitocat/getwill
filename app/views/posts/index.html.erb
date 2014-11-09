@@ -12,14 +12,14 @@
         <ul class="timeline">
 
           <% @posts.each do |post| %>
-            <li class="mo-animate" data-animate="fadeInDown">
+            <li id ="tid<%= post.id %>" class="mo-animate posts" data-animate="fadeInDown">
               <div class="timeline-container">
                 <div class="feature-left">
                   <h5 class="gap" data-top="20" data-bottom="12"><%= post.title%></h5>
                   <p><%= post.content %></p>
                   <% if post.image? %>
-                    <%= image_tag post.image.url %>
-                  <% else %>
+                    <%= image_tag post.image.url, :class =>'thumbnail' %>
+                  <% else %>th
                     <%= image_tag 'noimage.gif' %>
                   <% end %>
                   <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
