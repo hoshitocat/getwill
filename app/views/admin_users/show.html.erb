@@ -1,1 +1,72 @@
-<h2> sample</h2>
+      <div class="large-8 medium-8 medium-potrait-8 columns mo-animate">
+        <div style="whight:40%">
+           <h3 class="gap" data-top="20" data-bottom="12"><%= @post.title %></h3>
+        </div>
+
+        <div style="margin: auto auto 0.5em;">
+           <p style="margin: auto auto 0.5em;"><%= @post.content %></p>
+           <p style="text-align: right;margin: auto auto 0.5em;">投稿者:</p>
+           <p style="text-align: right;margin: auto auto 0.5em;">投稿日:</p>
+        </div>
+
+        <div class="row" >
+          <div class="large-6 columns mo-animate" data-animate="fadeInLeft">
+                <div id="top-tab">
+                  <!-- tab list -->
+                  <ul class="resp-tabs-list" style="float: left">
+                     <li style="float: left"><i class="icon-briefcase"></i> Sample 1</li>
+                     <li style="float: left"><i class="icon-calculator"></i> Sample 2</li>
+                  </ul>
+
+                  <!-- tab container -->
+                  <div class="resp-tabs-container">
+                     <div>
+                        <p>
+                           <%= high_chart("hoge", @graph) %>
+                        </p>
+                     </div>
+					 <div>
+                        <p>
+                        </p>
+                     </div>
+
+                  </div>
+                  <!-- end tab container -->
+               </div>
+          </div>
+        <div class="large-6 columns mo-animate" data-animate="fadeInLeft">
+                <div id="top-tab">
+                  <!-- tab list -->
+                  <ul class="resp-tabs-list" style="float:left">
+                     <li style="float:left"><i class="icon-briefcase"></i> Sample 1</li>
+                     <li style="float:left"><i class="icon-calculator"></i> Sample 2</li>
+                  </ul>
+
+                  <!-- tab container -->
+                  <div class="resp-tabs-container">
+                     <div>
+                        <p>
+                           <%= high_chart("hogea", @graph) %>
+                        </p>
+                     </div>
+
+                  </div>
+                  <!-- end tab container -->
+               </div>
+          </div>
+		  </div>
+
+           <div class="blog-author mo-animate" data-animate="fadeInDown">
+              <h5>コメント</h5>
+
+              <h6></h6>
+              <p class="text-overflow">
+              </p>
+
+              <h6></h6>
+              <p class="text-overflow">
+                 Everything you're seeing here is pulled through dynamically from the WordPress admin panel. Simply go to your user profile, fille out the URLs to your social media profiles, fill in the biographical info, and you're good to go!
+              </p>
+
+           </div>
+
