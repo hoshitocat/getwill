@@ -18,7 +18,7 @@
                   <h5 class="gap" data-top="20" data-bottom="12"><%= post.title%></h5>
                   <p><%= post.content %></p>
                   <% if post.image? %>
-                    <%= image_tag post.image.thumb.url %>
+                    <%= image_tag post.image.url %>
                   <% else %>
                     <%= image_tag 'noimage.gif' %>
                   <% end %>

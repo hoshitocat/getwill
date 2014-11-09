@@ -45,3 +45,5 @@ Thumbs.db
 
 # Ignore development.rb
 /config/environments/development.rb
+
+/public/uploads
