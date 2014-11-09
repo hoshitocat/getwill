@@ -34,7 +34,7 @@
                 <div class="footer-content">
                   <ul class="inline-list">
                     <li><a href="#"><i class="icon-comment"></i> 25</a></li>
-                    <li><a href="#"><i class="icon-fblike"></i> 100</a></li>
+                    <li><a class="like-btn" id="like-btn<%= post.id %>"><i class="icon-fblike"></i> 100</a></li>
                   </ul>
                 </div>
               </div>
@@ -52,42 +52,6 @@
               </div>
             </li>
           <% end %>
-
-          <!-- sample -->
-          <li class="mo-animate" data-animate="fadeInDown">
-            <div class="timeline-container">
-              <div class="feature-left">
-                <h5 class="gap" data-top="20" data-bottom="12">総合運動場の利用可否の HP での公開</h5> 
-                <p>　（サンプル）総合運動場のランニングコースを利用していますが、運動場に到着して初めて、当日利用できるかが分かります。イベントなどの開催は事前に分かっているので、総合運動場のホームページに当日の個人利用が可能なのか載せてください。</p>
-                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
-              </div>
-            </div>
-            <div class="timeline-footer">
-              <div class="footer-content">
-                <ul class="inline-list">
-                  <li><a class ="btn-comment"><i class="icon-comment"></i> 25</a></li>
-                  <li><a href="#"><i class="icon-fblike"></i> 100</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- コメント -->
-            <div class="timeline-container comments">
-              <div class="feature-left">
-                <h5 class="gap" data-top="20" data-bottom="12">私も賛成ですー</h5>
-                <p>　私も賛成ですー。</p>
-                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
-              </div>
-              <div class="feature-left">
-                <h5 class="gap" data-top="20" data-bottom="12">私も賛成ですー</h5>
-                <p>　私も賛成ですー。</p>
-                <div class ="auther">2014/11/12 23:43<br>投稿者: 山田花子</div>
-              </div>
-            </div>
-
-          </li>
-          <!-- .sample -->
-
         </ul>
       </div>
     </div>
@@ -97,10 +61,10 @@
 
 <!-- javascript here -->
 <script type="text/javascript">
-  jQuery(document).ready(function(){
-    $(".comments").hide();
-    $(".btn-comment").click(function(){
-      $(".comments").slideToggle();
-    });
-  });
+ jQuery(document).ready(function(){
+   $(".comments").hide();
+   $(".btn-comment").click(function(){
+     $(".comments").slideToggle();
+   });
+ });
 </script>

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get 'like'
-      get 'comment'
+      post 'like'
+      post 'comment'
     end
   end
 

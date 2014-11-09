@@ -2,9 +2,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  skip_before_filter :verify_authenticity_token
+
   # GET /posts
   # GET /posts.json
   def index
+    gon.controller = params[:controller]
+    gon.action = params[:action]
     @user = User.find(1)
     @posts = Post.all.order(created_at: :desc)
     session[:user_id] = @user.id
@@ -25,9 +29,15 @@ class PostsController < ApplicationController
   end
 
   def like
-    post_id = 3# params[:post_id]
-    if Like.where(post_id: post_id, user_id: session[:user_id]).first
-      @done = true
+    post_id = params[:post_id]
+    if like_done = Like.where(post_id: post_id, user_id: session[:user_id]).first
+      if like_done.valiable
+        like_done.update_attribute(:valiable, false)
+        @done = true
+      else
+        like_done.update_attribute(:valiable, true)
+        @done = false
+      end
     else
       like = Like.new
       like.user_id = session[:user_id]
